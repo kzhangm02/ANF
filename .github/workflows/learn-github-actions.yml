@@ -12,6 +12,6 @@ jobs:
       - name: Add
         run: git add output.txt
       - name: Commit
-        run: git commit -m artifact testing auto
+        run: git commit -m artifact-testing-auto
       - name: Push
         run: git push
