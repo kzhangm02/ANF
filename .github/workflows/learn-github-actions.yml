@@ -8,9 +8,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build dependencies
-        run: pip install requests
-        run: pip install bs4
-        run: pip install datetime
+        run: |
+            pip install requests
+            pip install bs4
+            pip install datetime
       - name: Webscrape
         run: python dev.py
       - name: Add
