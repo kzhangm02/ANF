@@ -1,12 +1,14 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  check-bats-version:
+  upload-file:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: python main.py
-      - uses: actions/upload-artifact@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: python main.py
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-            name: test-artifact
-            path: output.txt
+          files: output.txt
