@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: build-rss
 on: [push]
 jobs:
   upload-file:
@@ -11,14 +11,13 @@ jobs:
         run: |
             pip install requests
             pip install bs4
-            pip install datetime
       - name: Webscrape
-        run: python dev.py
+        run: python main.py
       - name: Add
-        run: git add test.xml
+        run: git add index.xml
       - name: Configure
         run: git config --global user.email 'kevin0.0zhang@gmail.com'
       - name: Commit
-        run: git commit -m artifact-testing-auto
+        run: git commit -m build-rss-auto
       - name: Push
         run: git push
