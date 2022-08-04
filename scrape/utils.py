@@ -1,9 +1,3 @@
-__name__ = "rfeed"
-__version__ = (1, 0, 0)
-__author__ = "Santiago L. Valdarrama - https://blog.svpino.com"
-_generator = __name__ + " v" + ".".join(map(str, __version__))
-_docs = "https://github.com/svpino/rfeed/blob/master/README.md"
-
 import itertools
 import sys
 from xml.sax import saxutils
@@ -40,15 +34,6 @@ class Serializable:
 		Keyword arguments:
 		date -- A datetime object in GMT format.
 		"""
-
-		# Alright, I admit it: this method looks hideous. The thing is that RFC 822 requires a specific format for dates, and strftime is
-		# locale dependent, so I can't use it to create the final date unless I force change the system locale.
-		#
-		# I looked into that (locale.setlocale, then restore), but I got the feeling that I was doing things that I was going to regret later.
-		# Maybe it's just me, but it doesn't feel right to force change the locale just to create a simple date.
-		#
-		# So, not having a better solution, I went ahead and used the original method from the PyRSS2Gen library.
-
 		if date is None:
 			return None
 
@@ -663,7 +648,6 @@ class Feed(Host):
 
 		if title is None: raise ElementRequiredError("title")
 		if link is None: raise ElementRequiredError("link")
-		# if description is None: raise ElementRequiredError("description")
 
 		self.title = title
 		self.link = link
@@ -674,12 +658,8 @@ class Feed(Host):
 		self.webMaster = webMaster
 		self.pubDate = pubDate
 		self.lastBuildDate = lastBuildDate
-		# self.generator = _generator if generator is None else generator
-		# self.docs = _docs if docs is None else docs
 		self.cloud = cloud
-		# self.ttl = ttl
 		self.image = image
-		# self.rating = rating
 		self.textInput = textInput
 		self.skipHours = skipHours
 		self.skipDays = skipDays
@@ -719,10 +699,6 @@ class Feed(Host):
 		self._write_element("webMaster", self.webMaster)
 		self._write_element("pubDate", self._date(self.pubDate))
 		self._write_element("lastBuildDate", self._date(self.lastBuildDate))
-		# self._write_element("generator", self.generator)
-		# self._write_element("docs", self.docs)
-		# self._write_element("ttl", self.ttl)
-		# self._write_element("rating", self.rating)
 
 		for category in self.categories:
 			if isinstance(category, basestring):
