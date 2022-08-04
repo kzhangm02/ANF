@@ -21,7 +21,7 @@ def smart_cities():
    elems = soup.find_all(class_="entry-title td-module-title")
    items = [elem_to_item(elem.findChildren('a')[0]) for elem in elems]
    feed = Feed(title="Smart Cities", link=url, language="en", lastBuildDate=now, items=items)
-   with open('D:\\a\\ANF\\ANF\\rss\\smart_cities.xml', 'w') as file:
+   with open('D:\\a\\ANF\\rss\\smart_cities.xml', 'w') as file:
       file.write(feed.rss())
 
 def smart_grid():
