@@ -14,7 +14,7 @@ jobs:
       - name: Webscrape
         run: python main.py
       - name: Add
-        run: git add index.xml
+        run: git add --all
       - name: Configure
         run: git config --global user.email 'kevin0.0zhang@gmail.com'
       - name: Commit
