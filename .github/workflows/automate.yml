@@ -1,8 +1,9 @@
-name: build-rss
-on: [push]
+name: update-rss
+on:
+    schedule:
+        - cron: "0 10 * * *"
 jobs:
   upload-file:
-    if: "!contains(github.event.head_commit.message, 'auto')"
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -18,6 +19,6 @@ jobs:
       - name: Configure
         run: git config --global user.email 'kevin0.0zhang@gmail.com'
       - name: Commit
-        run: git commit -m build-rss-auto
+        run: git commit -m update-rss
       - name: Push
         run: git push
