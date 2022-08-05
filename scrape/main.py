@@ -11,5 +11,5 @@ for scraper in scrapers:
       status += f'{name}: SUCCESS\n'
    except RuntimeError:
       status += f'{name}: FAIL\n'
-with open('../status.txt', 'w') as file:
+with open('./status.txt', 'w') as file:
    file.write(status)   
