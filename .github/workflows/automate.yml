@@ -12,7 +12,7 @@ jobs:
             pip install requests
             pip install bs4
       - name: Webscrape
-        run: python main.py
+        run: python scrape/main.py
       - name: Add
         run: git add --all
       - name: Configure
