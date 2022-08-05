@@ -19,6 +19,6 @@ jobs:
       - name: Configure
         run: git config --global user.email 'kevin0.0zhang@gmail.com'
       - name: Commit
-        run: git commit -m update-rss
+        run: git commit -m "update feeds"
       - name: Push
         run: git push
