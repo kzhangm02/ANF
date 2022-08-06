@@ -1,4 +1,4 @@
-name: update-rss
+name: Update Feeds
 on:
     schedule:
         - cron: "0 10 * * *"
@@ -8,17 +8,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build dependencies
+      - name: Build Dependencies
         run: |
             pip install requests
             pip install bs4
       - name: Webscrape
         run: python scrape/main.py
-      - name: Add
-        run: git add --all
-      - name: Configure
+      - name: Configure Git
         run: git config --global user.email 'kevin0.0zhang@gmail.com'
-      - name: Commit
-        run: git commit -m "update feeds"
+      - name: Commit Feeds
+        run: |
+            git add feeds
+            git commit -m "update feeds"
+      - name: Commit Status
+        run: |
+            git add status.txt
+            git commit -m "update status"
       - name: Push
         run: git push
