@@ -3,7 +3,7 @@ from webscrapers import *
 
 now = datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S")
 scrapers = [smart_cities, smart_grid]
-status = f'Status Report\n{now}\n\n'
+status = f'RSS FEED STATUS REPORT\n{now}\n\n'
 for scraper in scrapers:
    name = " ".join(scraper.__name__.upper().split("_"))
    try:
