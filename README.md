@@ -12,11 +12,11 @@ Topics to be added in the future:
  - [`feeds`](./feeds): This directory includes all the RSS feeds for each topic (i.e. one distinct page in the news feed) as .xml files. The files are hosted on GitHub at https://*OWNER_USERNAME*.github.io/ANF/feeds/*FILE_NAME*.xml
  - [`scrape`](./scrape): This directory includes all the code to generate the RSS feeds and the status reports.
    - [`main.py`](./scrape/main.py): This file runs all the scraper functions in webscraper.py and creates the status report.
-   - [`utils.py`](./scrape/utils.py): This file contains formatting functions to generate the RSS feeds.
+   - [`utils.py`](./scrape/utils.py): This file contains formatting functions to generate the RSS feeds. Most of the functions are not relevant, only the `Item` and `Feed` classes are useful.
    - [`webscrapers.py`](./scrape/webscrapers.py): This file contains the webscraper functions to extract articles from websites and convert them into RSS feeds.
  - [`status.txt`](./status.txt): Displays the SUCCESS or FAIL status of each RSS feed after the most recent update.
  
  ### Pipeline for creating a news feed
   - Create a new function in [`webscrapers.py`](./scrape/webscrapers.py) which extracts articles from the desired website and converts them to RSS format.
-  - Add the function name (without parenthesis) to the scrapers list in [`main.py`](./scrape/main.py).
+  - Add the function name (without parenthesis) to the `scrapers` list in [`main.py`](./scrape/main.py).
   - Create a news feed on the AE2C website which points to the link where GitHub hosts the new RSS feed.
