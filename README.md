@@ -17,6 +17,6 @@ Topics to be added in the future:
  - [`status.txt`](./status.txt): Displays the SUCCESS or FAIL status of each RSS feed after the most recent update.
  
  ### Pipeline for creating a news feed
- 1. Create a new function in [`webscrapers.py`](./scrape/webscrapers.py) which extracts articles from the desired website and converts them to RSS format.
+ 1. Create a new function in [`webscrapers.py`](./scrape/webscrapers.py) which extracts articles from the desired website and converts them to RSS format (Test the function locally!).
  2. Add the function name (without parenthesis) to the `scrapers` list in [`main.py`](./scrape/main.py).
  3. Create a news feed on the AE2C website which points to the link where GitHub hosts the new RSS feed.
